@@ -4,7 +4,10 @@ from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework.serializers import ValidationError
 from taxi.models import Trip, UserProfile, Trip2Passenger, Point
-from taxi.serializers import TripSerializer, TripAddRequestSerializer , PassengerAddToTripRequestSerializer
+from taxi.serializers import TripSerializer, \
+                             TripAddRequestSerializer , \
+                             PassengerAddToTripRequestSerializer, \
+                             DriverAddToTripRequestSerializer
 
 from rest_framework.serializers import ValidationError
 
@@ -60,4 +63,26 @@ class PassengerAddToTripView(APIView):
         p2t.trip = t
         p2t.passenger = p
         p2t.save()
+        return Response(TripSerializer(t).data)
+
+class DriverAddToTripView(APIView):
+    """
+       Add a new driver to the trip.
+
+       _____________________
+
+    """
+    @swagger_auto_schema( 
+        request_body = DriverAddToTripRequestSerializer, \
+        responses={200: TripSerializer}
+        )
+
+    def post(self, request, format=None):
+        try:
+            t = Trip.objects.get(pk=request.data.get('trip_id'))
+            p = UserProfile.objects.get(pk=request.data.get('driver_id'))
+        except:
+            raise ValidationError('Error! Wrong damn ids!!!')
+        t.driver = p
+        t.save()
         return Response(TripSerializer(t).data)

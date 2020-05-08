@@ -39,3 +39,7 @@ class TripAddRequestSerializer(serializers.Serializer):
 class PassengerAddToTripRequestSerializer(serializers.Serializer):
     trip_id = serializers.IntegerField(required=True, min_value=1)
     passenger_id = serializers.IntegerField(required=True, min_value=1)
+
+class DriverAddToTripRequestSerializer(serializers.Serializer):
+    trip_id = serializers.IntegerField(required=True, min_value=1)
+    driver_id = serializers.IntegerField(required=True, min_value=1)
