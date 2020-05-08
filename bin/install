@@ -16,9 +16,11 @@ virtualenv -p python3 venv
 pip install -r ./requirements.txt
 cd dj_prj
 ./manage.py migrate
+cd ../..
+./bin/seeddb
 
 
 ### frontend ####
 
-cd ../../frontend
+cd frontend
 npm i

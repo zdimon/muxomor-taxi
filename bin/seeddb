@@ -2,4 +2,5 @@
 cd backend
 . ./venv/bin/activate
 cd dj_prj
+./manage.py load_users
 ./manage.py load_regions
