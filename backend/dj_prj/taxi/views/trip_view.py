@@ -6,6 +6,8 @@ from rest_framework.serializers import ValidationError
 from taxi.models import Trip, UserProfile, Trip2Passenger, Point
 from taxi.serializers import TripSerializer, TripAddRequestSerializer , PassengerAddToTripRequestSerializer
 
+from rest_framework.serializers import ValidationError
+
 class TripAddView(APIView):
     """
        Add a new trip.
@@ -49,5 +51,13 @@ class PassengerAddToTripView(APIView):
         )
 
     def post(self, request, format=None):
-
-        return Response({'message': 'Ok'})
+        try:
+            t = Trip.objects.get(pk=request.data.get('trip_id'))
+            p = UserProfile.objects.get(pk=request.data.get('passenger_id'))
+        except:
+            raise ValidationError('Error! Wrong damn ids!!!')
+        p2t = Trip2Passenger()
+        p2t.trip = t
+        p2t.passenger = p
+        p2t.save()
+        return Response(TripSerializer(t).data)
