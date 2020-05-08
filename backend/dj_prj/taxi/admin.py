@@ -14,17 +14,17 @@ class RegionAdmin(admin.ModelAdmin):
 
 @admin.register(Point)
 class PointAdmin(admin.ModelAdmin):
-    list_display = ['name', 'city', 'region']
+    list_display = ['id', 'name', 'city', 'region']
     list_filter = ['city', 'region']
 
 @admin.register(SocialAuth)
 class SocialAuthAdmin(admin.ModelAdmin):
-    list_display = ['type', 'email', 'user', 'secret']
+    list_display = ['id', 'type', 'email', 'user', 'secret']
 
 
 @admin.register(UserProfile)
 class UserProfileAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    list_display = ['publicname', 'phone', 'get_small_image_user', 'get_small_image_car']
+    list_display = ['id', 'publicname', 'phone', 'get_small_image_user', 'get_small_image_car']
 
 
 class Trip2PassengerAdmin(admin.TabularInline):
@@ -33,4 +33,4 @@ class Trip2PassengerAdmin(admin.TabularInline):
 @admin.register(Trip)
 class TripAdmin(admin.ModelAdmin):
     inlines = [Trip2PassengerAdmin,]
-    list_display = ['point_a', 'point_b', 'driver']
+    list_display = ['id', 'point_a', 'point_b', 'driver', 'price']

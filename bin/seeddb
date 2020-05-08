@@ -4,3 +4,4 @@ cd backend
 cd dj_prj
 ./manage.py load_users
 ./manage.py load_regions
+./manage.py load_trips
