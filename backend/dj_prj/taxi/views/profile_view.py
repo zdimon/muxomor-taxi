@@ -3,13 +3,14 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
 from taxi.serializers import ProfileSaveRequestSerializer
-from taxi.models import UserProfile
+from taxi.models import UserProfile, Region2User
 from rest_framework.parsers import MultiPartParser
 
 from rest_framework.serializers import ValidationError
-from taxi.serializers import CommonSerializer, UserSerializer
+from taxi.serializers import CommonSerializer, UserSerializer, Region2UserSerializer
 import base64
 from django.core.files.base import ContentFile
+from rest_framework.generics import CreateAPIView
 
 class UserProfileSaveView(APIView):
     """
@@ -68,3 +69,13 @@ class UserProfileSaveView(APIView):
         user.save()
 
         return Response(UserSerializer(user).data)
+
+class Region2UserCreateView(CreateAPIView):
+    '''
+    Create relation between user and region.
+    
+    _________________
+
+    '''
+    serializer_class = Region2UserSerializer
+    model = Region2User

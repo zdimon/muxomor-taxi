@@ -1,5 +1,5 @@
 from django.contrib import admin
-from taxi.models import City, Region, Point, SocialAuth, UserProfile, Trip2Passenger, Trip
+from taxi.models import City, Region, Point, SocialAuth, UserProfile, Trip2Passenger, Trip, Region2User
 from image_cropping import ImageCroppingMixin
 # Register your models here.
 
@@ -22,10 +22,14 @@ class SocialAuthAdmin(admin.ModelAdmin):
     list_display = ['id', 'type', 'email', 'user', 'secret']
 
 
+
+class Region2UserAdmin(admin.TabularInline):
+    model = Region2User
+
 @admin.register(UserProfile)
 class UserProfileAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display = ['id', 'publicname', 'phone', 'get_small_image_user', 'get_small_image_car']
-
+    inlines = [Region2UserAdmin,]
 
 class Trip2PassengerAdmin(admin.TabularInline):
     model = Trip2Passenger

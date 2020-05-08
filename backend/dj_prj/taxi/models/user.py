@@ -7,6 +7,8 @@ from easy_thumbnails.files import get_thumbnailer
 from dj_prj.settings import BACKEND_URL
 from django.utils.safestring import mark_safe
 
+from taxi.models import Region
+
 
 class UserProfile(User):
     publicname = models.CharField(default='', max_length=250)
@@ -53,3 +55,8 @@ class UserProfile(User):
             }).url 
         except:
             return BACKEND_URL+'noimage.png'  
+
+class Region2User(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
