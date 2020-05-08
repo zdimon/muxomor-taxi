@@ -18,3 +18,4 @@ frontend/package-lock.json
 # python
 **/*.pyc
 backend/venv
+backend/dj_prj/db.sqlite3

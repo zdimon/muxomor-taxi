@@ -2,6 +2,10 @@
 
 ![model](taxi-model.png)
 
-# Деплой
+## Start backend
 
-    ./bin/install 
+    ./bin/runb
+
+## Seed db
+
+    ./bin/seeddb
