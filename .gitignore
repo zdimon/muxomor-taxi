@@ -10,5 +10,11 @@
 **/web-build/
 **/web-report/
 
+frontend/package-lock.json
+
 # macOS
 **/.DS_Store
+
+# python
+**/*.pyc
+backend/venv

@@ -1,5 +1,9 @@
 # Muxomor-Taxi Front-End
 
+## Installation
+
+    npm i
+
 ## Start web version
 
 - ```npm run start```

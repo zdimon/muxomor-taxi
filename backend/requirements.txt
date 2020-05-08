@@ -1,0 +1,14 @@
+Django==3.0.6
+asgiref==3.2
+channels
+channels-redis
+djangorestframework
+django-cors-headers
+django-grappelli==2.13.3
+drf-yasg
+celery
+django-celery-results
+django-celery-beat
+django-filter==2.2.0
+django-extensions 
+pygraphviz

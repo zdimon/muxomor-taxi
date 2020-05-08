@@ -1,0 +1,3 @@
+cd backend/dj_prj
+. ../venv/bin/activate
+./manage.py graph_models taxi -o ../../doc/taxi-model.png
