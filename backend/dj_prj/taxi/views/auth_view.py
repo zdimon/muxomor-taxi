@@ -11,7 +11,7 @@ from taxi.models import UserProfile, SocialAuth
 
 class GoogleView(APIView):
     '''
-    Авторизация через гугл.
+    Google authorization.
 
     _______________________
 

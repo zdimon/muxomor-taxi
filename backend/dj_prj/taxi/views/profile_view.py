@@ -12,13 +12,15 @@ import base64
 from django.core.files.base import ContentFile
 
 class UserProfileSaveView(APIView):
+    """
+    Saving user profile.
+
+    _____________________
+
+    """
     permission_classes = (IsAuthenticated,)
     parser_classes = (MultiPartParser,)
-    """
-       Saving user profile.
 
-       _____________________
-    """
     @swagger_auto_schema( 
         request_body = ProfileSaveRequestSerializer, \
         responses={200: UserSerializer}

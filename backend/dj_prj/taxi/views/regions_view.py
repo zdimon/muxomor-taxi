@@ -9,7 +9,7 @@ from rest_framework.generics import ListAPIView
 
 class RegionsListView(ListAPIView):
     '''
-    Список городов с регионами.
+    Cities list with the regions.
     
     _________________
 
