@@ -1,8 +1,24 @@
+#!/bin/bash
+
+### backend ####
+
+SETTINGFILE=./backend/dj_prj/dj_prj/local.py
+TPLFILE=./backend/dj_prj/dj_prj/_local.py 
+
+if [ ! -f "$SETTINGFILE" ]; then
+    echo "local.py file not found!"
+    cp "$TPLFILE" "$SETTINGFILE"
+fi
+
 cd backend
 virtualenv -p python3 venv
 . ./venv/bin/activate
 pip install -r ./requirements.txt
 cd dj_prj
 ./manage.py migrate
+
+
+### frontend ####
+
 cd ../../frontend
 npm i
