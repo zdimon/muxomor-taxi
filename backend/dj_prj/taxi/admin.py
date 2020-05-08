@@ -1,5 +1,6 @@
 from django.contrib import admin
 from taxi.models import City, Region, Point, SocialAuth, UserProfile
+from image_cropping import ImageCroppingMixin
 # Register your models here.
 
 @admin.register(City)
@@ -22,5 +23,5 @@ class SocialAuthAdmin(admin.ModelAdmin):
 
 
 @admin.register(UserProfile)
-class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['publicname', 'phone']
+class UserProfileAdmin(ImageCroppingMixin, admin.ModelAdmin):
+    list_display = ['publicname', 'phone', 'get_small_image_user', 'get_small_image_car']

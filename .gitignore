@@ -19,3 +19,4 @@ frontend/package-lock.json
 **/*.pyc
 backend/venv
 backend/dj_prj/db.sqlite3
+backend/dj_prj/media/

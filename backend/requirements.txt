@@ -12,3 +12,5 @@ django-celery-beat
 django-filter==2.2.0
 django-extensions 
 pygraphviz
+django-image-cropping
+easy-thumbnails
