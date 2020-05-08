@@ -1,11 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native'
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 
-export default function App() {
+import appStore from './src/store'
+import AuthNavigator from './src/navigators/AuthNavigator'
+
+const store = createStore(appStore, applyMiddleware(
+  thunk
+))
+
+export default function App(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <Text>Hello -----!</Text>
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <AuthNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

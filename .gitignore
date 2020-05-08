@@ -9,6 +9,7 @@
 **/*.orig.*
 **/web-build/
 **/web-report/
+**/*.env
 
 frontend/package-lock.json
 
