@@ -22,5 +22,5 @@ cd ../..
 
 ### frontend ####
 
-cd frontend
-npm i
+# cd frontend
+# npm i
