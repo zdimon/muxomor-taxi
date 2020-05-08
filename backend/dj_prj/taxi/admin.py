@@ -19,7 +19,7 @@ class PointAdmin(admin.ModelAdmin):
 
 @admin.register(SocialAuth)
 class SocialAuthAdmin(admin.ModelAdmin):
-    list_display = ['type', 'email', 'user']
+    list_display = ['type', 'email', 'user', 'secret']
 
 
 @admin.register(UserProfile)
