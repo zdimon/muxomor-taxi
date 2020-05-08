@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'taxi',
     'django_extensions',
     'drf_yasg',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [

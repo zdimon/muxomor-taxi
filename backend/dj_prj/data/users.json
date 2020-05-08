@@ -1,6 +1,17 @@
 [
     {
         "username": "admin",
-        "password": "admin"
+        "password": "admin",
+        "publicname": "admin"
+    },
+    {
+        "username": "dima",
+        "password": "dima",
+        "publicname": "dima"
+    },
+    {
+        "username": "nikita",
+        "password": "nikita",
+        "publicname": "nikita"
     }
 ]

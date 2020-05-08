@@ -3,6 +3,7 @@ import json
 from dj_prj.settings import DATA_DIR
 import os
 from django.contrib.auth.models import User
+from taxi.models import UserProfile
 
 class Command(BaseCommand):
    
@@ -14,12 +15,13 @@ class Command(BaseCommand):
         dtf = open(os.path.join(DATA_DIR, 'users.json'),'r')
         dt = json.loads(dtf.read())
         for user in dt:
-            u = User()
+            u = UserProfile()
             u.username = user['username']
             u.set_password(user['password'])
             u.is_staff = True
             u.is_active = True
             u.is_superuser = True
+            u.publicname = user['publicname']
             u.save()
             print('Saving.....%s' % u.username)
            
