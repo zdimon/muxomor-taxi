@@ -4,8 +4,11 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics
 
+
+
 from taxi.models import Point
 from taxi.serializers import PointSerializer
+from taxi.filters import PointFilter
 
 class AddPointView(generics.CreateAPIView):
     '''
@@ -16,5 +19,17 @@ class AddPointView(generics.CreateAPIView):
     '''
     serializer_class = PointSerializer
     permission_classes = [IsAuthenticated]
+
+class SearchPointView(generics.ListAPIView):
+    '''
+    Search point.
+
+    _______________________
+
+    '''
+    queryset = Point.objects.all()
+    serializer_class = PointSerializer
+    permission_classes = [IsAuthenticated]
+    filterset_class = PointFilter
     
     
