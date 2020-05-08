@@ -1,19 +1,23 @@
 import React, { useEffect } from 'react'
 import { View, Text } from 'react-native'
-import env from '../../../env'
+import { Button } from 'react-native-elements'
 import { StoreState } from '../../interfaces'
 
-interface Props {}
+interface Props {
+  state: Partial<StoreState>,
+  actions: {
+    signin: Function
+  }
+}
 
-function Login(props: Props & Partial<StoreState>) {
+function Login(props: Props) {
 
-  useEffect(() => {
-    console.log(props)
-  }, [])
+  const { actions: { signin }} = props
 
   return (
-    <View>
-      <Text>{env.API_URL}</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 36, margin: 8 }}>Muxomor Taxi: Login</Text>
+      <Button title='Google OAuth'  raised onPress={() => signin()} />
     </View>
   )
 }

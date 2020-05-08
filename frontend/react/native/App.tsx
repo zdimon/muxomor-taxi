@@ -9,7 +9,7 @@ import thunk from 'redux-thunk'
 import appStore from './src/store'
 import AuthNavigator from './src/navigators/AuthNavigator'
 
-const store = createStore(appStore, applyMiddleware(
+export const store = createStore(appStore, applyMiddleware(
   thunk
 ))
 
