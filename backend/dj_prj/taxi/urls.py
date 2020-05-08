@@ -7,7 +7,8 @@ from taxi.views import RegionsListView, \
                        TripAddView, \
                        PassengerAddToTripView, \
                        DriverAddToTripView, \
-                       SearchPointView 
+                       SearchPointView, \
+                       NotificationListView 
 
 
 
@@ -21,5 +22,6 @@ urlpatterns = [
         path('passenger_add_to_trip',PassengerAddToTripView.as_view()),
         path('driver_add_to_trip',DriverAddToTripView.as_view()),
         path('point_search',SearchPointView.as_view()),
+        path('notification_list',NotificationListView.as_view()),
  
 ]

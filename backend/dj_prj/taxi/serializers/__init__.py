@@ -6,3 +6,4 @@ from .profile_serializer import *
 from .common_serializer import *
 from .point_serializer import *
 from .trip_serializer import *
+from .notification_serializer import *
