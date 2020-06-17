@@ -6,6 +6,11 @@
 
     ./bin/runb
 
+## Start frontend
+
+    ./bin/runf
+
 ## Seed db
 
     ./bin/seeddb
+

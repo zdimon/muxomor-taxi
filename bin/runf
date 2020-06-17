@@ -1,0 +1,3 @@
+#!/bin/bash
+cd frontend/react/native
+npm start run
