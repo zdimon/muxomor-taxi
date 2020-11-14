@@ -29,7 +29,7 @@ class SearchPointView(generics.ListAPIView):
     '''
     queryset = Point.objects.all()
     serializer_class = PointSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
     filterset_class = PointFilter
     
     

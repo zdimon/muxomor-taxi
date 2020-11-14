@@ -1,0 +1,6 @@
+#!/bin/bash
+cd backend
+. ./venv/bin/activate
+cd dj_prj
+./manage.py makemigrations
+./manage.py migrate

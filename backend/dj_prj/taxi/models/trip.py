@@ -7,6 +7,8 @@ class Trip(models.Model):
     point_b = models.ForeignKey(Point, on_delete=models.CASCADE, related_name='point_b')
     driver = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.IntegerField(default=0)
+    date = models.DateField(default='2001-01-01')
+    time = models.TimeField(default='21:00:00')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):

@@ -35,6 +35,8 @@ class TripAddRequestSerializer(serializers.Serializer):
     point_a_id = serializers.IntegerField(required=True, min_value=1)
     point_b_id = serializers.IntegerField(required=True, min_value=1)
     price = serializers.IntegerField(required=True, min_value=1)
+    date = serializers.DateField()
+    time = serializers.DateField()
 
 class PassengerAddToTripRequestSerializer(serializers.Serializer):
     trip_id = serializers.IntegerField(required=True, min_value=1)
