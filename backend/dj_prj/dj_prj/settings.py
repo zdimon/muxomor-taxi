@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'taxi',
     'django_extensions',
     'drf_yasg',
+    'rest_framework',
     'rest_framework.authtoken',
+    'channels',
+    'testing',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +65,7 @@ ROOT_URLCONF = 'dj_prj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,9 +134,38 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        #'rest_framework.authentication.BasicAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'PAGE_SIZE': 50
+}
+
+### Channels
+
+ASGI_APPLICATION = "dj_prj.channels_app.application"
+
+SWAGGER_SETTINGS = {
+   'USE_SESSION_AUTH': False,
+   'SECURITY_DEFINITIONS': {
+      'Your App API - Swagger': {
+         'type': 'oauth2',
+         'authorizationUrl': '/yourapp/o/authorize',
+         'tokenUrl': '/yourapp/o/token/',
+         'flow': 'accessCode',
+         'scopes': {
+          'read:groups': 'read groups',
+         }
+      }
+   },
+   'OAUTH2_CONFIG': {
+      'clientId': 'yourAppClientId',
+      'clientSecret': 'yourAppClientSecret',
+      'appName': 'your application name'
+   },
 }
 
 from .local import *

@@ -14,3 +14,6 @@ django-extensions
 django-image-cropping
 easy-thumbnails
 python-telegram-bot==12.0.0b1
+channels
+djangorestframework-oauth
+django-oauth-toolkit

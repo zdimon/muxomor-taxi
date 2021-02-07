@@ -22,3 +22,5 @@ backend/venv
 backend/dj_prj/db.sqlite3
 backend/dj_prj/media/
 backend/dj_prj/dj_prj/local.py
+
+.vscode
